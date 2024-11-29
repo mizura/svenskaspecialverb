@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スウェーデン語強変化動詞アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <header>
+        <h1>スウェーデン語強変化動詞を覚えよう！</h1>
+    </header>
+    <main>
+        <div id="quiz-container">
+            <p id="question"></p>
+            <input type="text" id="answer" placeholder="答えを入力">
+            <button id="submit">回答する</button>
+            <p id="feedback"></p>
+        </div>
+        <button id="next-button" style="display:none;">次に進む</button>
+        <div id="score-container">
+            <p>正解数: <span id="correct-count">0</span></p>
+            <p>間違い数: <span id="wrong-count">0</span></p>
+        </div>
+        <button id="show-mistakes" style="display:none;">間違えた動詞を表示</button>
+        <div id="mistakes-container" style="display:none;">
+            <h2>間違えた動詞のリスト</h2>
+            <ul id="mistakes-list"></ul>
+        </div>
+        <div id="completion-message" style="display:none;">
+    <h2>これで終わりです！</h2>
+    <p>お疲れさまでした。</p>
+    <button id="retry-mistakes" style="display:none;">間違えた問題をもう一度解く</button>
+</div>
+
+    </main>
+    <footer>
+        <p>© 2024 学習アプリ</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

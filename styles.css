@@ -1,0 +1,111 @@
+#score-container {
+    margin-top: 20px;
+}
+
+#show-mistakes {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#show-mistakes:hover {
+    background-color: #45a049;
+}
+
+#mistakes-container {
+    margin-top: 20px;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#mistakes-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mistakes-list li {
+    margin: 5px 0;
+    color: #333;
+}
+
+#next-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+#next-button:hover {
+    background-color: #0079a1;
+}
+
+#completion-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border: 1px solid #add8e6;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+#retry-mistakes {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#retry-mistakes:hover {
+    background-color: #e67e22;
+}
+
+@media screen and (max-width: 768px) {
+    #score-container {
+        margin-top: 10px; /* 余白を少し縮小 */
+    }
+
+    #show-mistakes {
+        padding: 8px 15px; /* ボタンの大きさを縮小 */
+        font-size: 14px;   /* ボタンの文字サイズを調整 */
+    }
+
+    #mistakes-container {
+        padding: 10px; /* コンテナの余白を縮小 */
+    }
+
+    #next-button {
+        padding: 8px 15px; /* ボタンサイズを縮小 */
+        font-size: 14px;   /* 文字サイズを調整 */
+    }
+
+    #completion-message {
+        padding: 10px; /* 余白を調整 */
+        font-size: 14px; /* 文字サイズを小さく */
+    }
+
+    #retry-mistakes {
+        padding: 8px 15px; /* ボタンの大きさを縮小 */
+        font-size: 14px;   /* 文字サイズを調整 */
+    }
+
+    body {
+        font-size: 14px; /* 全体の文字サイズを少し小さく */
+        padding: 10px;   /* 画面端の余白を縮小 */
+    }
+}
+

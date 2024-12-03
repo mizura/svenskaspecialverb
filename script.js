@@ -1,48 +1,48 @@
 // 動詞リスト（過去形のみ）
 const strongVerbs = [
-     { infinitive: "måste", preterite: "måste" },
-    { infinitive: "njuta", preterite: "njöt" },
-    { infinitive: "rinna", preterite: "rann" },
-    { infinitive: "riva", preterite: "rev" },
-    { infinitive: "säga", preterite: "sa, sade" },
-    { infinitive: "sälja", preterite: "sålde" },
-    { infinitive: "sätta", preterite: "satte" },
-    { infinitive: "se", preterite: "såg" },
-    { infinitive: "sitta", preterite: "satt" },
-    { infinitive: "sjunga", preterite: "sjöng" },
-    { infinitive: "sjunka", preterite: "sjönk" },
-    { infinitive: "skära", preterite: "skar" },
-    { infinitive: "skina", preterite: "sken" },
-    { infinitive: "skjuta", preterite: "sköt" },
-    { infinitive: "skola", preterite: "skulle" },
-    { infinitive: "skrika", preterite: "skrek" },
-    { infinitive: "skriva", preterite: "skrev" },
-    { infinitive: "slå", preterite: "slog" },
-    { infinitive: "slåss", preterite: "slogs" },
-    { infinitive: "slippa", preterite: "slapp" },
-    { infinitive: "slita", preterite: "slet" },
-    { infinitive: "sova", preterite: "sov" },
-    { infinitive: "spricka", preterite: "sprack" },
-    { infinitive: "springa", preterite: "sprang" },
-    { infinitive: "stå", preterite: "stod" },
-    { infinitive: "sticka", preterite: "stack" },
-    { infinitive: "stiga", preterite: "steg" },
-    { infinitive: "stjäla", preterite: "stal" },
-    { infinitive: "stryka", preterite: "strök" },
-    { infinitive: "svälja", preterite: "svalde" },
-    { infinitive: "svika", preterite: "svek" },
-    { infinitive: "ta", preterite: "tog" },
-    { infinitive: "tiga", preterite: "teg" },
-    { infinitive: "töras", preterite: "tordes" },
-    { infinitive: "välja", preterite: "valde" },
-    { infinitive: "vänja", preterite: "vande" },
-    { infinitive: "vara", preterite: "var" },
-    { infinitive: "veta", preterite: "visste" },
-    { infinitive: "vika", preterite: "vek" },
-    { infinitive: "vilja", preterite: "ville" },
-    { infinitive: "vinna", preterite: "vann" },
-    { infinitive: "vrida", preterite: "vred" },
-    { infinitive: "äta", preterite: "åt" }
+     { infinitive: "måste", preterite: ["måste"] },
+    { infinitive: "njuta", preterite: ["njöt"] },
+    { infinitive: "rinna", preterite: ["rann"] },
+    { infinitive: "riva", preterite: ["rev"] },
+    { infinitive: "säga", preterite: ["sa", "sade"] },
+    { infinitive: "sälja", preterite: ["sålde"] },
+    { infinitive: "sätta", preterite: ["satte"] },
+    { infinitive: "se", preterite: ["såg"] },
+    { infinitive: "sitta", preterite: ["satt"] },
+    { infinitive: "sjunga", preterite: ["sjöng"] },
+    { infinitive: "sjunka", preterite: ["sjönk"] },
+    { infinitive: "skära", preterite: ["skar"] },
+    { infinitive: "skina", preterite: ["sken"] },
+    { infinitive: "skjuta", preterite: ["sköt"] },
+    { infinitive: "skola", preterite: ["skulle"] },
+    { infinitive: "skrika", preterite: ["skrek"] },
+    { infinitive: "skriva", preterite: ["skrev"] },
+    { infinitive: "slå", preterite: ["slog"] },
+    { infinitive: "slåss", preterite: ["slogs"] },
+    { infinitive: "slippa", preterite: ["slapp"] },
+    { infinitive: "slita", preterite: ["slet"] },
+    { infinitive: "sova", preterite: ["sov"] },
+    { infinitive: "spricka", preterite: ["sprack"] },
+    { infinitive: "springa", preterite: ["sprang"] },
+    { infinitive: "stå", preterite: ["stod"] },
+    { infinitive: "sticka", preterite: ["stack"] },
+    { infinitive: "stiga", preterite: ["steg"] },
+    { infinitive: "stjäla", preterite: ["stal"] },
+    { infinitive: "stryka", preterite: ["strök"] },
+    { infinitive: "svälja", preterite: ["svalde"] },
+    { infinitive: "svika", preterite: ["svek"] },
+    { infinitive: "ta", preterite: ["tog"] },
+    { infinitive: "tiga", preterite: ["teg"] },
+    { infinitive: "töras", preterite: ["tordes"] },
+    { infinitive: "välja", preterite: ["valde"] },
+    { infinitive: "vänja", preterite: ["vande"] },
+    { infinitive: "vara", preterite: ["var"] },
+    { infinitive: "veta", preterite: ["visste"] },
+    { infinitive: "vika", preterite: ["vek"] },
+    { infinitive: "vilja", preterite: ["ville"] },
+    { infinitive: "vinna", preterite: ["vann"] },
+    { infinitive: "vrida", preterite: ["vred"] },
+    { infinitive: "äta", preterite: ["åt"] }
 ];
 
 let questionQueue = shuffleArray([...strongVerbs]); // ランダムにシャッフル
@@ -89,27 +89,40 @@ console.log("generateQuestionが呼び出されました")
     nextButton.style.display = "none";
     submitButton.style.display = "block";
 }
-
-// 回答をチェック
 function checkAnswer() {
-    const userAnswer = answerElement.value.trim();
-    if (userAnswer === currentVerb.preterite) {
+    const userAnswer = document.getElementById("past-tense").value.trim(); // ユーザーの入力を取得
+    const resultElement = document.getElementById("result");
+
+    // 正解リストを取得
+    const correctAnswers = currentVerb.preterite;
+
+    // 入力が正解リストに含まれるか判定
+    if (correctAnswers.includes(userAnswer)) {
         correctCount++;
-        feedbackElement.textContent = "正解！";
-        feedbackElement.style.color = "green";
+        resultElement.textContent = "正解！";
+        resultElement.style.color = "green";
     } else {
         wrongCount++;
-        feedbackElement.textContent = `不正解！正しい答えは「${currentVerb.preterite}」です。`;
-        feedbackElement.style.color = "red";
+        resultElement.textContent = `不正解！正しい答えは「${correctAnswers.join(" または ")}」です。`;
+        resultElement.style.color = "red";
+
+        // 間違えた動詞をリストに追加
         mistakes.push({
             infinitive: currentVerb.infinitive,
-            correctAnswer: currentVerb.preterite
+            correctAnswer: correctAnswers
         });
-        mistakesQueue.push(currentVerb); // 間違えた問題を再挑戦用に追加
+        mistakesQueue.push(currentVerb);
     }
 
-    correctCountElement.textContent = correctCount;
-    wrongCountElement.textContent = wrongCount;
+    // スコアの更新
+    document.getElementById("correct-count").textContent = correctCount;
+    document.getElementById("wrong-count").textContent = wrongCount;
+
+    // 次の質問に進む準備
+    document.getElementById("check-button").disabled = true; // ボタンを無効化
+}
+
+
 
     if (mistakes.length > 0) {
         showMistakesButton.style.display = "block";
